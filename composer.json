@@ -1,0 +1,10 @@
+{
+    "name": "root/fw",
+    "authors": [
+        {
+            "name": "GolovaVasilenko",
+            "email": "vasilenko75@gmail.com"
+        }
+    ],
+    "require": {}
+}
