@@ -43,7 +43,7 @@
                                     <ul>
 
                                         <li><a href="register.html">Мой кабинет</a>
-                                            <?php if(\astore\Session::get('user')):?>
+                                            <?php if(Core\Session\Session::get('user')):?>
                                                 <ul class="submenu-mainmenu">
                                                     <li><a href="product-details.html">Сравнить товары</a></li>
                                                     <li><a href="register.html">Кабинет пользователя</a></li>
@@ -157,9 +157,9 @@
                                             </ul>
                                         </li>
                                         <li class="megamenu-catalog"><a href="#">Каталог <i class="fa fa-angle-down"></i></a>
-                                            <?php new \app\widgets\catalog\CatalogList([
+                                            <?php /*new \app\widgets\catalog\CatalogList([
                                                     'tpl' => APP . '/views/widgets/catalog/menu_catalog.php',
-                                            ]);?>
+                                            ]);*/?>
                                         </li>
                                         <li><a href="shop.html">shop</a>
                                             <ul>

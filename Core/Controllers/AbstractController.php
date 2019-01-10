@@ -30,7 +30,6 @@ abstract class AbstractController
         $this->route = $route;
         $this->controller = $route['controller'];
         $this->model = $route['controller'];
-        $this->model = $route['controller'];
         $this->view = $route['action'];
         $this->prefix = $route['prefix'];
 

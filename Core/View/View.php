@@ -39,7 +39,7 @@ class View
     {
         if(is_array($data)) extract($data);
         $this->prefix = str_replace('\\', '/', $this->prefix);
-        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+        $viewFile = APP . "/Views/{$this->prefix}{$this->controller}/{$this->view}.php";
         if(is_file($viewFile)) {
             ob_start();
             require_once $viewFile;
@@ -50,7 +50,7 @@ class View
         }
 
         if(false !== $this->layout) {
-            $fileLayout = APP . "/views/layouts/{$this->layout}.php";
+            $fileLayout = APP . "/Views/layouts/{$this->layout}.php";
             if(is_file($fileLayout)) {
                 require_once $fileLayout;
             }
