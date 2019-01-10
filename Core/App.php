@@ -4,16 +4,15 @@ namespace Core;
 
 use Core\Errors\ErrorHandler;
 use Core\Router\Router;
+use Core\Request\Request;
 
 class App
 {
     public static $app;
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        $uri = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
-
-        $query = trim($uri, '/');
+        $query = $request->getPathInfo();
 
         self::$app = Registry::instance();
 

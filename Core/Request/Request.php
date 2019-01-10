@@ -46,7 +46,7 @@ class Request
             '', $path_info);
         $path_info = trim($path_info, '/');
 
-        $this->uri = empty($path_info) ? '/' : $path_info;
+        $this->uri = empty($path_info) ? '' : $path_info;
         return $this->uri;
     }
 
@@ -57,6 +57,13 @@ class Request
     public function getQueryItem($key)
     {
         return isset($this->get[$key]) ? $this->get[$key] : [];
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAjax() {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
     }
 
     /**

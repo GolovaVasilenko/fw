@@ -1,6 +1,6 @@
 <?php
 
-use astore\Router;
+use Core\Router\Router;
 
 Router::add('^admin$', ['controller' => 'Main', 'action' => 'index', 'prefix' => 'admin']);
 

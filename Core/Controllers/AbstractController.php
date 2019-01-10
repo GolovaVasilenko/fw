@@ -5,6 +5,7 @@ namespace Core\Controllers;
 use Core\App;
 use Core\DataBase\Db;
 use Core\Session\Session;
+use Core\View\View;
 
 abstract class AbstractController
 {
@@ -71,10 +72,6 @@ abstract class AbstractController
     {
         header("Location: " . $path);
         die;
-    }
-
-    public function isAjax() {
-        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
     }
 
     public function getRequestID($get = true, $id = 'id')

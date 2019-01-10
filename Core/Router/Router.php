@@ -91,7 +91,7 @@ class Router
         return lcfirst(self::upperCamelCase($name));
     }
 
-    protected function removeGetString($url)
+    protected static function removeGetString($url)
     {
         if($url){
             $params = explode('?', $url, 2);
