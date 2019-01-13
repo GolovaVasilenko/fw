@@ -13,6 +13,8 @@ abstract class AbstractController
 
     public $controller;
 
+    public $view_temp;
+
     public $view;
 
     public $prefix;
@@ -23,14 +25,17 @@ abstract class AbstractController
 
     public $data = [];
 
-    public $meta = [];
+    public $meta = [
+        'title' => '',
+        'description' => ''
+    ];
 
     public function __construct($route)
     {
         $this->route = $route;
         $this->controller = $route['controller'];
         $this->model = $route['controller'];
-        $this->view = $route['action'];
+        $this->view_temp = $route['action'];
         $this->prefix = $route['prefix'];
 
         if($errors = Session::get('errors')) {
@@ -46,6 +51,8 @@ abstract class AbstractController
             $this->set([ 'success' => $success ]);
             Session::remove('success');
         }
+
+        $this->view = $this->getView();
     }
 
     public function set($data)
@@ -53,18 +60,22 @@ abstract class AbstractController
         $this->data = $data;
     }
 
-
-    public function setMeta($title = '', $desc = '', $kw = '')
+    /**
+     * @param string $title
+     * @param string $desc
+     */
+    public function setMeta($title = '', $desc = '')
     {
         $this->meta['title'] = $title;
         $this->meta['description'] = $desc;
-        $this->meta['keywords'] = $kw;
     }
 
+    /**
+     * @return View
+     */
     public function getView()
     {    
-        $viewObj = new View($this->route, $this->layout, $this->view, $this->meta);
-        $viewObj->render($this->data);
+        return new View($this->route, $this->layout, $this->view_temp, $this->meta, $this->data);
     }
 
     public function redirect($path)

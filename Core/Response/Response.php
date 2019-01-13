@@ -18,7 +18,7 @@ class Response
      * @param array $headers                        HTTP-заголовки ответа
      */
     public function __construct($content, $status_code = 200, $headers = array()) {
-        // устанавливаем свойства класса
+
         $this->content      = $content;
         $this->status_code  = $status_code;
         $this->headers      = $headers;

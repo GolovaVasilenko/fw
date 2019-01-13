@@ -3,6 +3,7 @@
 namespace Core;
 
 use Core\Errors\ErrorHandler;
+use Core\Response\Response;
 use Core\Router\Router;
 use Core\Request\Request;
 
@@ -12,15 +13,14 @@ class App
 
     public function __construct(Request $request)
     {
-        $query = $request->getPathInfo();
-
         self::$app = Registry::instance();
+
+        self::$app->setProperty('query', $request->getPathInfo());
 
         $this->getSettings();
 
         new ErrorHandler();
 
-        Router::dispatch($query);
     }
 
     protected function getSettings()
@@ -32,5 +32,14 @@ class App
                 self::$app->setProperty($k, $v);
             }
         }
+    }
+
+    public function start()
+    {
+        $response = new Response(
+            Router::dispatch(self::$app->getProperty('query')),
+            self::$app->getProperty('code_response')
+        );
+        $response->send();
     }
 }
