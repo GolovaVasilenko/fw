@@ -40,7 +40,10 @@ class View
 
     public function render($data = [], $code = 200)
     {
-        if(is_array($data)) extract($data);
+        if(is_array($data)){
+            $this->data = array_merge($this->data, $data);
+            extract($this->data);
+        }
 
         App::$app->setProperty('code_response', $code);
 

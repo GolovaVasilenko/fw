@@ -3,6 +3,8 @@
 namespace Core\Router;
 
 
+use Core\Container\Container;
+
 class Router
 {
     protected static $routes = [];

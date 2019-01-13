@@ -40,4 +40,28 @@
  ======================== 
  [ 2019-01-13 13:38:59 ] | Error -- Class 'Core\DataBase\App' not found | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 27 
  ======================== 
+ [ 2019-01-13 15:01:04 ] | Error -- Метод indexAction в Контролере App\Controllers\PageController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 47 
+ ======================== 
+ [ 2019-01-13 15:02:19 ] | Error -- Метод indexAction в Контролере App\Controllers\PageController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 45 
+ ======================== 
+ [ 2019-01-13 15:09:18 ] | Error -- Метод indexAction в Контролере App\Controllers\PageController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 45 
+ ======================== 
+ [ 2019-01-13 15:10:23 ] | Error -- Метод indexAction в Контролере App\Controllers\PageController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 45 
+ ======================== 
+ [ 2019-01-13 15:25:29 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 15:29:43 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 15:49:50 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 15:51:07 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 15:51:49 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 15:58:02 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 16:00:10 ] | Error -- Instantiation of 'Closure' is not allowed | File -- /home/alexey/www/fw/Core/Container/Container.php | Line -- 16 
+ ======================== 
+ [ 2019-01-13 16:08:21 ] | Error -- Class name must be a valid object or a string | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 37 
+ ======================== 
  

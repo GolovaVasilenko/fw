@@ -15,11 +15,11 @@ class App
 
     public static $container;
 
-    public function __construct(Request $request, Container $container)
+    public $shared = false;
+
+    public function __construct(Request $request)
     {
         self::$app = Registry::instance();
-
-        self::$container = $container;
 
         self::$app->setProperty('query', $request->getPathInfo());
 
