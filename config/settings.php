@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'salt' => 'skA28fhryS4vA1f46Cxvd879N',
     'smtp_login' => '',
     'smtp_pass' => '',
     'post_per_page' => 6,

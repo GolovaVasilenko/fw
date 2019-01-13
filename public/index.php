@@ -12,9 +12,7 @@ require_once CONF . "/routes.php";
 
 require_once LIBS . "/functions.php";
 
-//try {
+$container = new \Core\Container\Container();
 
-$app = new Core\App(new Core\Request\Request());
+$app = new Core\App(new Core\Request\Request(), $container);
 $app->start();
-/*
-

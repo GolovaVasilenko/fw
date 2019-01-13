@@ -3,32 +3,45 @@
 
 namespace Core\DataBase;
 
-use Core\DataBase\Db as DataBase;
+use Core\App;
+use Core\Session\Session;
+use Valitron\Validator;
 
 
 class AbstractModel
 {
-    public static $saltKey  = 'rG7yr3kj624isVq51Ht5';
+    use THasher;
+    use TFilter;
 
     const TABLE = '';
 
-    public static function cashSecretKey($cdate, $login, $saltKey)
+    protected static $db;
+
+    public $errors = [];
+
+    public $rules = [];
+
+    public function __construct()
     {
-        return md5($cdate . $saltKey . $login);
+        static::$db = App::$app->getProperty('db');
     }
 
+    /**
+     * @param string $order
+     * @return array
+     */
     public static function findAll($order = 'ASC')
     {
-        $db = DataBase::getInstance();
+        //$db = DataBase::getInstance();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id ' . $order;
-        return $db->query($sql, get_called_class() );
+        return static::$db->query($sql, get_called_class() );
     }
 
     public static function findById($id)
     {
-        $db = DataBase::getInstance();
+        //$db = DataBase::getInstance();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
-        $res = $db->query($sql, get_called_class() , ['id' =>  $id]);
+        $res = static::$db->query($sql, get_called_class() , ['id' =>  $id]);
         if(!empty($res[0]))
             return  $res[0];
         else
@@ -37,9 +50,9 @@ class AbstractModel
 
     public static function findByColumn($column, $val)
     {
-        $db = DataBase::getInstance();
+        //$db = DataBase::getInstance();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE ' . $column . '=:val';
-        $res = $db->query($sql, get_called_class() , ['val' =>  $val]);
+        $res = static::$db->query($sql, get_called_class() , ['val' =>  $val]);
         if(!empty($res[0]))
             return  $res[0];
         else
@@ -56,9 +69,9 @@ class AbstractModel
                 $cols .= ' AND ';
             }
         }
-        $db = DataBase::getInstance();
+        //$db = DataBase::getInstance();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE ' . $cols;
-        $res = $db->query($sql, get_called_class() , $columns);
+        $res = static::$db->query($sql, get_called_class() , $columns);
         if(!empty($res[0]))
             return  $res[0];
         else
@@ -77,10 +90,10 @@ class AbstractModel
             $values[':'.$k] = $v;
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', array_keys($values)) . ')';
-        $db = DataBase::getInstance();
-        $result = $db->execute($sql, $values);
+        //$db = DataBase::getInstance();
+        $result = static::$db->execute($sql, $values);
         if($result){
-            $id = $db->getDbh()->lastInsertId();
+            $id = static::$db->getDbh()->lastInsertId();
         }
         else{
             $id = false;
@@ -103,8 +116,8 @@ class AbstractModel
                 $ins[] = $key . ' = :' .$key;
         }
         $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $ins) . ' WHERE id = :id';
-        $db = DataBase::getInstance();
-        return $db->execute($sql, $dataExec);
+        //$db = DataBase::getInstance();
+        return static::$db->execute($sql, $dataExec);
     }
 
     public function save()
@@ -120,10 +133,10 @@ class AbstractModel
 
     public function delete()
     {
-        $db = DataBase::getInstance();
+        //$db = DataBase::getInstance();
         $sql = 'DELETE FROM ' . static::TABLE. ' WHERE id = :id';
         if(isset($this->id))
-            return $db->execute($sql, array('id' => $this->id));
+            return static::$db->execute($sql, array('id' => $this->id));
     }
 
     public function __isset($name) {
@@ -141,37 +154,6 @@ class AbstractModel
         }
     }
 
-    public static function clearData($data)
-    {
-        if(is_numeric($data)){
-            return (int)$data;
-        }
-
-        if(is_string($data)){
-            return static::clearStr($data);
-        }
-
-        if(is_array($data)){
-            foreach($data as $key => &$item){
-                if(is_numeric($item) and 'artikul' != $key){
-                    $item = (int) $item;
-                }
-
-                if(is_string($item)){
-                    if('body' === $key or 'content' === $key)
-                        continue;
-                    $item = static::clearStr($item);
-                }
-            }
-        }
-        return $data;
-    }
-
-    public static function clearStr($str)
-    {
-        return htmlspecialchars(strip_tags(stripslashes(trim($str))));
-    }
-
     public function get($key)
     {
         if (property_exists($this, $key)) {
@@ -187,5 +169,47 @@ class AbstractModel
             return true;
         }
         return false;
+    }
+
+    public function validate($data)
+    {
+        Validator::lang('ru');
+        $v = new Validator($data);
+        $v->rules($this->rules);
+
+        if($v->validate()){
+            return true;
+        }
+        else {
+            $this->errors = $v->errors();
+            return false;
+        }
+    }
+
+    public function getErrors()
+    {
+        $errors = "<ul>";
+        foreach($this->errors as $error){
+            foreach($error as $item){
+                $errors .= "<li>" . $item . "</li>";
+            }
+        }
+        $errors .= "</ul>";
+        Session::set('errors', $errors);
+    }
+
+
+    public function __set($key, $value)
+    {
+        if(property_exists($this, $key)){
+            $this->$key = $value;
+        }
+    }
+
+    public function __get($key)
+    {
+        if(property_exists($this, $key)){
+            return $this->$key;
+        }
     }
 }

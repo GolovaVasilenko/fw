@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Container\Container;
+use Core\DataBase\Db;
 use Core\Errors\ErrorHandler;
 use Core\Response\Response;
 use Core\Router\Router;
@@ -11,11 +13,16 @@ class App
 {
     public static $app;
 
-    public function __construct(Request $request)
+    public static $container;
+
+    public function __construct(Request $request, Container $container)
     {
         self::$app = Registry::instance();
 
+        self::$container = $container;
+
         self::$app->setProperty('query', $request->getPathInfo());
+        self::$app->setProperty('db', Db::getInstance());
 
         $this->getSettings();
 

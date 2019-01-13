@@ -12,16 +12,25 @@ class Db
 
     private function __construct()
     {
+        $connection = require_once CONF . "/db.php";
+
         $options = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
         try{
-            $this->dbh = new \PDO('mysql:dbname='. NAME_DB . ';host=' . HOST_DB, USER_DB, PASS_DB, $options);
+            $this->dbh = new \PDO(
+                $connection['dsn'],
+                $connection['user'],
+                $connection['password'],
+                $options
+            );
+
             if(!$this->dbh)
             {
                 throw new \PDOException();
             }
         }
         catch(\PDOException $pdoError){
-            throw new Errors('Соединение с базой даннных не возможно', (int)$pdoError->getCode( ));
+            echo $pdoError->getMessage();
+            die;
         }
     }
 
