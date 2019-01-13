@@ -10,6 +10,9 @@ class Db
 
     public static $instance = null;
 
+    /**
+     * Db constructor.
+     */
     private function __construct()
     {
         $connection = require_once CONF . "/db.php";
@@ -36,6 +39,9 @@ class Db
 
     private function __clone(){}
 
+    /**
+     * @return Db|null
+     */
     public static function getInstance()
     {
         if(self::$instance === null)
@@ -43,6 +49,12 @@ class Db
         return self::$instance;
     }
 
+    /**
+     * @param $sql
+     * @param string $class
+     * @param array $params
+     * @return array
+     */
     public function query($sql, $class = 'stdClass', $params = [])
     {
         $sth = $this->dbh->prepare($sql);
@@ -53,9 +65,21 @@ class Db
         return [];
     }
 
+    /**
+     * @param $sql
+     * @param array $params
+     * @return bool
+     */
     public function execute($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
         return $sth->execute($params);
+    }
+
+    /**
+     * @return \PDO
+     */
+    public function getDbh() {
+        return $this->dbh;
     }
 }

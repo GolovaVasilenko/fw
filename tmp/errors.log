@@ -2,4 +2,42 @@
  ======================== 
  [ 2019-01-13 09:54:13 ] | Error -- Контролер App\Controllers\SdfdfdfdfdfController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 47 
  ======================== 
+ [ 2019-01-13 12:44:46 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 37 
+ ======================== 
+ [ 2019-01-13 12:46:12 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 37 
+ ======================== 
+ [ 2019-01-13 12:47:58 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 37 
+ ======================== 
+ [ 2019-01-13 12:48:01 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 37 
+ ======================== 
+ [ 2019-01-13 12:52:04 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 35 
+ ======================== 
+ [ 2019-01-13 12:52:07 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 35 
+ ======================== 
+ [ 2019-01-13 12:52:52 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 12:53:48 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 12:53:51 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 13:06:05 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 13:06:46 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 13:06:46 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 51 
+ ======================== 
+ [ 2019-01-13 13:09:35 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 13:09:41 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 29 
+ ======================== 
+ [ 2019-01-13 13:09:41 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 51 
+ ======================== 
+ [ 2019-01-13 13:28:12 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 28 
+ ======================== 
+ [ 2019-01-13 13:29:12 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 28 
+ ======================== 
+ [ 2019-01-13 13:29:16 ] | Error -- Call to a member function query() on null | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 28 
+ ======================== 
+ [ 2019-01-13 13:38:59 ] | Error -- Class 'Core\DataBase\App' not found | File -- /home/alexey/www/fw/Core/DataBase/AbstractModel.php | Line -- 27 
+ ======================== 
  

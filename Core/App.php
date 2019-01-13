@@ -22,9 +22,10 @@ class App
         self::$container = $container;
 
         self::$app->setProperty('query', $request->getPathInfo());
-        self::$app->setProperty('db', Db::getInstance());
 
         $this->getSettings();
+
+        self::$app->setProperty('db', Db::getInstance());
 
         new ErrorHandler();
 

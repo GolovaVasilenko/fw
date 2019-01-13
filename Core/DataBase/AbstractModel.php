@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Core\DataBase;
 
 use Core\App;
 use Core\Session\Session;
 use Valitron\Validator;
-
 
 class AbstractModel
 {
@@ -21,25 +19,20 @@ class AbstractModel
 
     public $rules = [];
 
-    public function __construct()
-    {
-        static::$db = App::$app->getProperty('db');
-    }
-
     /**
      * @param string $order
      * @return array
      */
     public static function findAll($order = 'ASC')
     {
-        //$db = DataBase::getInstance();
+        static::$db = App::$app->getProperty('db');
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id ' . $order;
         return static::$db->query($sql, get_called_class() );
     }
 
     public static function findById($id)
     {
-        //$db = DataBase::getInstance();
+        static::$db = App::$app->getProperty('db');
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
         $res = static::$db->query($sql, get_called_class() , ['id' =>  $id]);
         if(!empty($res[0]))
@@ -50,7 +43,7 @@ class AbstractModel
 
     public static function findByColumn($column, $val)
     {
-        //$db = DataBase::getInstance();
+        static::$db = App::$app->getProperty('db');
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE ' . $column . '=:val';
         $res = static::$db->query($sql, get_called_class() , ['val' =>  $val]);
         if(!empty($res[0]))
@@ -69,7 +62,8 @@ class AbstractModel
                 $cols .= ' AND ';
             }
         }
-        //$db = DataBase::getInstance();
+
+        static::$db = App::$app->getProperty('db');
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE ' . $cols;
         $res = static::$db->query($sql, get_called_class() , $columns);
         if(!empty($res[0]))
@@ -90,8 +84,10 @@ class AbstractModel
             $values[':'.$k] = $v;
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', array_keys($values)) . ')';
-        //$db = DataBase::getInstance();
+
+        static::$db = App::$app->getProperty('db');
         $result = static::$db->execute($sql, $values);
+
         if($result){
             $id = static::$db->getDbh()->lastInsertId();
         }
@@ -116,7 +112,8 @@ class AbstractModel
                 $ins[] = $key . ' = :' .$key;
         }
         $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $ins) . ' WHERE id = :id';
-        //$db = DataBase::getInstance();
+
+        static::$db = App::$app->getProperty('db');
         return static::$db->execute($sql, $dataExec);
     }
 
@@ -133,7 +130,7 @@ class AbstractModel
 
     public function delete()
     {
-        //$db = DataBase::getInstance();
+        static::$db = App::$app->getProperty('db');
         $sql = 'DELETE FROM ' . static::TABLE. ' WHERE id = :id';
         if(isset($this->id))
             return static::$db->execute($sql, array('id' => $this->id));

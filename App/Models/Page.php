@@ -3,9 +3,7 @@
 namespace App\Models;
 
 
-use Core\DataBase\AbstractModel;
-
-class Page extends AbstractModel
+class Page extends AppModel
 {
     const TABLE = 'pages';
 
