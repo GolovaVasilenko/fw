@@ -1,4 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
-
+/webpack/node_modules
 /vendor/

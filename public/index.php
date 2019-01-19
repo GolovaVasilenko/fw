@@ -13,4 +13,5 @@ require_once CONF . "/routes.php";
 require_once LIBS . "/functions.php";
 
 $app = new Core\App(new Core\Request\Request());
+
 $app->start();

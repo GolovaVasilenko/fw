@@ -64,4 +64,72 @@
  ======================== 
  [ 2019-01-13 16:08:21 ] | Error -- Class name must be a valid object or a string | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 37 
  ======================== 
+ [ 2019-01-19 14:42:23 ] | Error -- Файл вида /home/alexey/www/fw/App/Views/User/login.php не найден! | File -- /home/alexey/www/fw/Core/View/View.php | Line -- 59 
+ ======================== 
+ [ 2019-01-19 14:42:34 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:28 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:52:29 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 15:54:33 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:13:19 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:13:20 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:13:20 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:13:21 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:14:45 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:14:46 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:19:59 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:20:01 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:21:51 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 16:22:38 ] | Error -- Страница не найдена | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 53 
+ ======================== 
+ [ 2019-01-19 17:00:11 ] | Error -- Файл шаблона profile не найден | File -- /home/alexey/www/fw/Core/View/View.php | Line -- 72 
+ ======================== 
+ [ 2019-01-19 18:05:28 ] | Error -- Метод controlPanelAction в Контролере App\Controllers\UserController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 45 
+ ======================== 
+ [ 2019-01-19 18:31:47 ] | Error -- Метод controlPanelAction в Контролере App\Controllers\UserController не найден | File -- /home/alexey/www/fw/Core/Router/Router.php | Line -- 45 
+ ======================== 
+ [ 2019-01-19 18:32:34 ] | Error -- Class 'App\Controllers\Auth' not found | File -- /home/alexey/www/fw/App/Controllers/Admin/AdminController.php | Line -- 16 
+ ======================== 
  

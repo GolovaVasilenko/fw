@@ -13,7 +13,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="/assets/admin/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/assets/admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/assets/admin/css/AdminLTE.min.css">
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet" href="/assets/admin/dist/css/custom.css">
+    <link rel="stylesheet" href="/assets/admin/css/custom.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

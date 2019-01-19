@@ -21,6 +21,14 @@ class View
 
     public $meta = [];
 
+    /**
+     * View constructor.
+     * @param $route
+     * @param string $layout
+     * @param string $view
+     * @param array $meta
+     * @param $data
+     */
     public function __construct($route, $layout = '', $view = '', $meta = [], $data)
     {
         $this->route = $route;
@@ -28,7 +36,7 @@ class View
         $this->controller = $route['controller'];
         $this->view = $view;
         $this->meta = $meta;
-        $this->data = array_merge($data, $this->data);
+        $this->data = array_merge($this->data, $data);
 
         if($layout === false){
             $this->layout = false;
@@ -38,6 +46,12 @@ class View
         }
     }
 
+    /**
+     * @param array $data
+     * @param int $code
+     * @return string
+     * @throws \Exception
+     */
     public function render($data = [], $code = 200)
     {
         if(is_array($data)){
@@ -61,6 +75,7 @@ class View
 
         if(false !== $this->layout) {
             $fileLayout = APP . "/Views/layouts/{$this->layout}.php";
+
             if(is_file($fileLayout)) {
                 ob_start();
                 require_once $fileLayout;
@@ -74,6 +89,17 @@ class View
 
     }
 
+    /**
+     * @param $layout
+     */
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
+    }
+
+    /**
+     * @return string
+     */
     public function getMeta()
     {
         $output = "<title>{$this->meta['title']}</title>" . PHP_EOL;

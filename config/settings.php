@@ -6,5 +6,8 @@ return [
     'smtp_pass' => '',
     'post_per_page' => 6,
     'email_admin' => 'vasilenko75@gmail.ru',
-    'site_name' => 'A-Store super shop'
+    'site_name' => 'A-Store super shop',
+    'domain' => 'fw.loc',
+    'protocol' => 'http://',
+    'site_url' => 'http://fw.loc/',
 ];

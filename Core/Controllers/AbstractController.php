@@ -4,6 +4,7 @@ namespace Core\Controllers;
 
 use Core\App;
 use Core\DataBase\Db;
+use Core\Request\Request;
 use Core\Session\Session;
 use Core\View\View;
 
@@ -25,11 +26,17 @@ abstract class AbstractController
 
     public $data = [];
 
+    public $request;
+
     public $meta = [
         'title' => '',
         'description' => ''
     ];
 
+    /**
+     * AbstractController constructor.
+     * @param $route
+     */
     public function __construct($route)
     {
         $this->route = $route;
@@ -37,6 +44,7 @@ abstract class AbstractController
         $this->model = $route['controller'];
         $this->view_temp = $route['action'];
         $this->prefix = $route['prefix'];
+        $this->request = new Request();
 
         if($errors = Session::get('errors')) {
             if(Session::get('old')) {
@@ -55,6 +63,9 @@ abstract class AbstractController
         $this->view = $this->getView();
     }
 
+    /**
+     * @param $data
+     */
     public function set($data)
     {
         $this->data = $data;
@@ -75,7 +86,13 @@ abstract class AbstractController
      */
     public function getView()
     {    
-        return new View($this->route, $this->layout, $this->view_temp, $this->meta, $this->data);
+        return new View(
+                    $this->route,
+                    $this->layout,
+                    $this->view_temp,
+                    $this->meta,
+                    $this->data
+                );
     }
 
     public function redirect($path)
