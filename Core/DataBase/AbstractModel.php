@@ -15,9 +15,9 @@ class AbstractModel
 
     protected static $db;
 
-    public $errors = [];
+    protected $errors = [];
 
-    public $rules = [];
+    protected $rules = [];
 
     /**
      * @param string $order
@@ -78,7 +78,7 @@ class AbstractModel
         $values = [];
         foreach($this as $k => $v)
         {
-            if('id' == $k)
+            if('id' == $k || 'errors' == $k || 'rules' == $k)
                 continue;
             $columns[] = $k;
             $values[':'.$k] = $v;
@@ -103,14 +103,18 @@ class AbstractModel
         $dataExec = [];
         foreach($this as $key => $val)
         {
-            if(null !== $val)
+            if(null !== $val && 'errors' !== $key && 'rules' !== $key) {
                 $dataExec[':' . $key] = $val;
-            if('id' == $key || null === $val){
+            }
+            if('id' == $key || null === $val || 'errors' == $key || 'rules' == $key){
                 continue;
             }
-            if(null !== $val)
+            if(null !== $val){
                 $ins[] = $key . ' = :' .$key;
+            }
+
         }
+
         $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $ins) . ' WHERE id = :id';
 
         static::$db = App::$app->getProperty('db');
@@ -209,4 +213,5 @@ class AbstractModel
             return $this->$key;
         }
     }
+
 }

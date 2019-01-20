@@ -3834,7 +3834,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("jQuery(document).ready(function ($) {});\n\n//# sourceURL=webpack:///./src/js/custom.js?");
+eval("jQuery(document).ready(function ($) {\n  $('.dropdown-toggle').on('click', function (e) {\n    e.preventDefault();\n    $(this).next('.dropdown-list').slideToggle('slow');\n  });\n  $(\"#form-registration\").validate({\n    rules: {\n      login: {\n        required: true,\n        minlength: 2\n      },\n      password: {\n        required: true\n      },\n      confirm_password: {\n        required: true\n      },\n      email: {\n        required: true,\n        email: true\n      }\n    },\n    messages: {\n      login: {\n        required: 'Это поле обязательно для заполнения',\n        minlength: 'Поле должно содержать более 2 символов'\n      },\n      email: {\n        required: \"Это поле обязательно для заполнения\",\n        email: \"Введите корректный формат E-mail\"\n      }\n    }\n  });\n});\n\n//# sourceURL=webpack:///./src/js/custom.js?");
 
 /***/ }),
 

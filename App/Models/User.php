@@ -48,9 +48,12 @@ class User extends AppModel
         return self::findByColumn('secret_key', $secret);
     }
 
-    public static function checkout($email, $passHash)
+    public static function checkout($email, $password)
     {
-        if($user = self::getUserByEmail($email) && self::findByColumn('password', $passHash)) {
+        $passHash = self::hashPassword($password);
+        $user = self::getUserByEmail($email);
+
+        if($user && self::findByColumn('password', $passHash)) {
             return $user;
         }
         return false;
@@ -70,10 +73,11 @@ class User extends AppModel
 
     public function auth()
     {
-        Session::set('currentUser', $user->id);
-        $secretKey = User::hashSecretKey($user->email);
-        $user->secret_key = $secretKey;
-        $user->save();
+        Session::set('currentUser', $this->id);
+        $secretKey = User::hashSecretKey($this->email);
+        $this->secret_key = $secretKey;
+
+        $this->save();
 
         Cookie::setCookie('user_mem', $secretKey);
     }

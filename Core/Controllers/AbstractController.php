@@ -49,8 +49,9 @@ abstract class AbstractController
         if($errors = Session::get('errors')) {
             if(Session::get('old')) {
                 $old = Session::get('old');
+                $this->set([ 'errors' => $errors, 'old_date' => $old ]);
             }
-            $this->set([ 'errors' => $errors, 'old_data' => $old ]);
+
             Session::remove('old');
             Session::remove('errors');
         }

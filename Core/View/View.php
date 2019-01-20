@@ -11,6 +11,8 @@ class View
 
     public $prefix;
 
+    public $user;
+
     public $route;
 
     public $controller;
@@ -95,6 +97,14 @@ class View
     public function setLayout($layout)
     {
         $this->layout = $layout;
+    }
+
+    /**
+     * @param $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 
     /**

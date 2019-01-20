@@ -1,5 +1,10 @@
 jQuery(document).ready(function($) {
 
+    $('.dropdown-toggle').on('click', function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-list').slideToggle('slow');
+    });
+
     $("#form-registration").validate({
         rules: {
             login: {
