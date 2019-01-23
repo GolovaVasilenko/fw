@@ -14,4 +14,8 @@ class Page extends AppModel
     public $slug;
 
     public $body;
+
+    public $meta_title;
+
+    public $meta_desc;
 }

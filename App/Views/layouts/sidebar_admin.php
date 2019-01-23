@@ -1,7 +1,7 @@
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MAIN NAVIGATION</li>
-    <li class="treeview">
+    <li>
         <a href="/control-panel">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <!--span class="pull-right-container">
@@ -13,8 +13,8 @@
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul-->
     </li>
-    <li class="treeview">
-        <a href="/admin/user">
+    <li>
+        <a href="/control-panel/user">
             <i class="fa fa-users"></i>
             <span>Пользователи</span>
             <span class="pull-right-container">

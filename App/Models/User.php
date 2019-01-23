@@ -82,4 +82,15 @@ class User extends AppModel
         Cookie::setCookie('user_mem', $secretKey);
     }
 
+    public function addUser($post)
+    {
+        $post['confirmed'] = rand(10000, 999999);
+        $post['password'] = User::hashPassword($post['password']);
+        $post['secret_key'] = User::hashSecretKey($post['email']);
+        $post['create_date'] = date("Y-m-d H:i:s");
+        $post['avatar'] = '/assets/img/no-avatar.png';
+
+        $this->dataInit($post);
+        $this->save();
+    }
 }

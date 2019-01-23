@@ -44,14 +44,8 @@ class UserController extends AppController
         if($post = $this->request->post){
             $user = new User();
 
-            $post['confirmed'] = rand(10000, 999999);
-            $post['password'] = User::hashPassword($post['password']);
-            $post['secret_key'] = User::hashSecretKey($post['email']);
-            $post['create_date'] = date("Y-m-d H:i:s");
-            $post['avatar'] = '/assets/img/no-avatar.png';
+            $user->addUser($post);
 
-            $user->dataInit($post);
-            $user->save();
             Session::set('success', 'You success Registration');
             $this->redirect('/user/profile');
         }
